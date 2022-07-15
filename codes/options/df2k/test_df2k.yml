@@ -1,4 +1,4 @@
-name: Track1
+name: sr_results
 suffix: ~  # add suffix to saved images
 model: srgan
 distortion: sr
@@ -23,5 +23,5 @@ network_G:
 
 #### path
 path:
-  pretrain_model_G: ../pretrained_model/DF2K.pth
+  pretrain_model_G: /home/acd13834xw/Real-SR/pretrained_model/DF2K_JPEG.pth
   results_root: ./results/
