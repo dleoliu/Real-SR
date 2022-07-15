@@ -13,8 +13,15 @@ from models import create_model
 #### options
 parser = argparse.ArgumentParser()
 parser.add_argument('-opt', type=str, required=True, help='Path to options YMAL file.')
+parser.add_argument('-wp', type=str, required=True, help='Path to test dataset.')
+parser.add_argument('-rt', type=str, required=True, help='Result root.')
+parser.add_argument('-n', type=str, required=True, help='Runtime name.')
 opt = option.parse(parser.parse_args().opt, is_train=False)
 opt = option.dict_to_nonedict(opt)
+opt['datasets']['test_1']['dataroot_LR'] = str(parser.parse_args().wp)
+opt['path']['results_root'] = str(parser.parse_args().rt)
+opt['name'] = str(parser.parse_args().n)
+opt['path']['log'] = str(parser.parse_args().n)
 
 util.mkdirs(
     (path for key, path in opt['path'].items()
